@@ -1,0 +1,6 @@
+export {default as war} from '../assets/icons/war.jpeg'
+export {default as legion} from '../assets/icons/legion.jpeg'
+export {default as saaho} from '../assets/icons/saaho.jpeg'
+export {default as shadow} from '../assets/icons/shadow.jpeg'
+export {default as guitarmusic} from '../assets/icons/guitarmusic.jpeg'
+export {default as musiclogo} from '../assets/icons/musiclogo.jpeg'

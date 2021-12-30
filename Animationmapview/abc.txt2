@@ -1,0 +1,86 @@
+import React, { Component } from 'react'
+import { Text, View,Dimensions,StyleSheet,Image} from 'react-native'
+import MapView ,{ Marker } from 'react-native-maps';
+
+const {height,width}=Dimensions.get('window');
+
+
+const locations_static=[
+    {
+        latitudeval:29.1105009,
+        longitudeval:77.2642792,
+        
+    },
+    {
+        latitudeval:29.0572271,
+        longitudeval:77.3453094,
+        
+    },
+    
+];
+
+export default class Multilocation extends Component {
+
+    state={
+        region:
+        {
+            latitude:29.097099,
+            longitude:77.273003,
+            latitudeDelta:0.0922,
+            longitudeDelta:0.0421,
+        }
+    }
+
+    render() {
+        locations_static.map(x=>{
+            console.log(x.latitudeval,x.longitudeval)
+        })
+
+        return (
+            <View style={styles.container}>
+            <MapView 
+            provider={null}
+            mapType={'standard'}
+            loadingEnabled={true}
+            showsTraffic={true}
+            showsBuildings={true}
+            style={styles.map}
+            initialRegion={this.state.region}>
+            {locations_static.map(x=>(
+                <Marker 
+                style={{width:26,height:28}}
+                coordinate={{
+                    latitude:x.latitudeval,
+                    longitude:x.latitudeval
+                }}
+                image={require('./images/map2.png')}>
+                {/* <Image style={styles.mark} 
+                source={require('../Screens/images/map2.png')}/> */}
+                </Marker>
+            ))}
+            
+            </MapView>
+                
+            </View>
+        )
+    }
+}
+const styles = StyleSheet.create({
+    container:
+    {
+        flex:1
+    },
+    map:
+    {
+        top:0,
+        bottom:0,
+        right:0,
+        left:0,
+        position:'absolute'
+    },
+    mark:
+    {
+        width:26,
+        height:28
+    }
+});
